@@ -1,0 +1,40 @@
+@startuml restoran
+title Flowchart untuk Aplikasi Restoran (Admin CRUD, Customer Melihat Menu)
+
+start
+
+:Buka Aplikasi;
+
+:Masukkan Email dan Password;
+
+:Cek Kredensial;
+
+if (Kredensial Valid?) then (Ya)
+    if (Admin?) then (Ya)
+        :Login Sebagai Admin;
+        :Akses Manajemen Menu;
+        :Pilih Aksi;
+        if (Aksi = Tambah Menu) then (Tambah Menu)
+            :Masukkan Detail Menu;
+            :Simpan Menu;
+        elseif (Aksi = Edit Menu) then (Edit Menu)
+            :Pilih Menu yang Akan Diedit;
+            :Perbarui Detail Menu;
+            :Simpan Perubahan;
+        elseif (Aksi = Hapus Menu) then (Hapus Menu)
+            :Pilih Menu yang Akan Dihapus;
+            :Konfirmasi Penghapusan;
+        endif
+        :Logout;
+    else (Customer)
+        :Login Sebagai Pelanggan;
+        :Lihat Daftar Menu;
+        :Logout;
+    endif
+else (Tidak)
+    :Tampilkan "Kredensial Tidak Valid";
+    :Kembali ke Halaman Login;
+endif
+
+stop
+@enduml

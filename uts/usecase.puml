@@ -1,0 +1,45 @@
+@startuml restoran_usecase
+actor Admin
+actor Customer
+
+
+package Restoran {
+    usecase "login" as a1
+    usecase "cek kredensial" as a2
+    usecase "login berhasil" as a3 
+    usecase "login gagal" as a4
+    usecase "login admin" as a5
+    usecase "login customer" as a6
+    usecase "manajemen menu restoran" as a7
+
+    usecase "tambah menu" as a8
+    usecase "edit menu" as a9
+    usecase "hapus menu" as a10
+
+    usecase "logout" as b1
+    usecase "lihat menu" as c1
+}
+
+Admin -> a1
+Customer -> a1
+
+a1 -> a2
+a2 -> a3
+a2 -> a4
+a4 -> a1
+a3 -> a5
+a3 -> a6
+
+a5 -> a7
+a7 -> a8
+a7 -> a9
+a7 -> a10
+a10 -> b1: extend
+
+a6 -> c1
+c1 -> b1: extend
+
+a2 -> a3: include
+a2 -> a4: include
+a6 -> c1: include
+@enduml
