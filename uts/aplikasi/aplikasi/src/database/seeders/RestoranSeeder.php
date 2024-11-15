@@ -20,8 +20,8 @@ class RestoranSeeder extends Seeder
         ];
 
 
-        foreach ($data as $datares) {
-            Restoran::firstOrCreate($datares);
+        foreach ($data as $datas) {
+            Restoran::firstOrCreate($datas);
     }
 }
     
